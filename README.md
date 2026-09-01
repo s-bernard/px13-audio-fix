@@ -80,6 +80,17 @@ The suspend/resume recovery is a separate, optional step:
 bash install-resume-recovery.sh        # hook + recovery script + dry run
 ```
 
+To revert the durable installation:
+
+```bash
+bash uninstall-durable.sh
+```
+
+The uninstaller removes the DKMS/manual module and the UCM files installed by
+`install-durable.sh`, then asks for a reboot so the stock module is loaded. It
+preserves locally modified files and leaves the separate suspend/resume
+recovery (including its shared detection cache) in place.
+
 ---
 
 ## SKU independence (why it used to break on other PX13s)
